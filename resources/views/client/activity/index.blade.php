@@ -50,11 +50,9 @@
                     </tbody>
                 </table><br>
                     @if(isset($TotalHours))
-                    <td><label>Total Working Hours :</label></td>
-                    <td>{{$TotalHours}}</td>
+                        <td><label>Total Working Hours :</label></td>
+                        <td>{{$TotalHours}}</td>
                     @endif
-               
-
 
             @endcomponent
 

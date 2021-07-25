@@ -47,7 +47,7 @@
                     <div class="col-sm-4">
                         <div class="form-group">
                             {!! Form::label('duration', 'Duration') !!}
-                            {!! Form::text('duration', null, ['class' => 'form-control','placeholder'=>'eg:hh:mm:ss']) !!}
+                            {!! Form::text('duration', null, ['class' => 'form-control','id'=>'time','placeholder'=>'eg:hh:mm:ss']) !!}
 
                         </div>
                     </div>                    
@@ -55,6 +55,8 @@
              
                 <div class="box-footer" align="center">
                     <button type="submit" class="btn btn-info">Save <i class="fa fa-save"></i></button>
+                      {{-- <input type="text" id="time" placeholder="Time"> --}}
+
                 </div>
 
                 {!! Form::close() !!}
@@ -65,3 +67,23 @@
     </div>
 
 @endsection
+
+@section('script')
+<script type="text/javascript">
+    
+var timepicker = new TimePicker('time', {
+  lang: 'en',
+  theme: 'dark'
+});
+timepicker.on('change', function(evt) {
+  
+  var value = (evt.hour || '00') + ':' + (evt.minute || '00');
+  evt.element.value = value;
+
+});
+</script>
+
+
+@endsection
+<script src="https://cdn.jsdelivr.net/timepicker.js/latest/timepicker.min.js"></script>
+<link href="https://cdn.jsdelivr.net/timepicker.js/latest/timepicker.min.css" rel="stylesheet"/>
